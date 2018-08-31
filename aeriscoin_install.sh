@@ -8,7 +8,7 @@ COIN_DAEMON='aeriscoind'
 COIN_CLI='aeriscoin-cli'
 COIN_TGZ='https://github.com/aeriscoin/aeriscoin/releases/download/v0.15.1/aeriscoin-0.15.1-x86_64-linux-gnu.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
-COIN_NAME='Aeriscoin'
+COIN_NAME='aeriscoin'
 COIN_PORT=23100
 RPC_PORT=23101
 
@@ -26,7 +26,8 @@ function download_node() {
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
   compile_error
-  tar xvzf $COIN_ZIP -C $COIN_PATH >/dev/null 2>&1
+  tar xvzf $COIN_ZIP -C $COIN_NAME >/dev/null 2>&1
+  cp $COIN_NAME/bin/* $COIN_PATH
   cd - >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
   clear
