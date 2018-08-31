@@ -27,7 +27,9 @@ function download_node() {
   wget -q $COIN_TGZ
   compile_error
   tar xvzf $COIN_ZIP >/dev/null 2>&1
+  compile_error
   cp aeriscoin-0.15.0/bin/* /usr/local/bin/
+  compile_error
   cd - >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
   clear
