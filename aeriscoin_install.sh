@@ -1,16 +1,16 @@
 #!/bin/bash
 
 TMP_FOLDER=$(mktemp -d)
-CONFIG_FILE='jiyo.conf'
-CONFIGFOLDER='/root/.jiyo'
+CONFIG_FILE='aeriscoin.conf'
+CONFIGFOLDER='/root/.aeriscoincore'
 COIN_PATH='/usr/local/bin/'
-COIN_DAEMON='jiyod'
-COIN_CLI='jiyo-cli'
-COIN_TGZ='https://github.com/jiyocoin/jiyox/releases/download/v.2.1/jiyo-2.1-linux-64bit.tar.gz'
+COIN_DAEMON='aeriscoind'
+COIN_CLI='aeriscoin-cli'
+COIN_TGZ='https://github.com/aeriscoin/aeriscoin/releases/download/v0.15.1/aeriscoin-0.15.1-x86_64-linux-gnu.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
-COIN_NAME='Jiyo'
-COIN_PORT=9999
-RPC_PORT=8888
+COIN_NAME='Aeriscoin'
+COIN_PORT=23100
+RPC_PORT=23101
 
 
 NODEIP=$(curl -s4 api.ipify.org)
@@ -124,22 +124,6 @@ listenonion=0
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
-addnode=149.28.135.221:9999
-addnode=45.32.95.86:9999
-addnode=140.82.23.100:9999
-addnode=217.69.2.25:9999
-addnode=195.201.131.217:9999
-addnode=95.216.151.173:9999
-addnode=95.179.156.88:9999
-addnode=139.99.56.65:9999
-addnode=66.42.81.215:9999
-addnode=165.227.166.88:9999
-addnode=35.192.93.203:9999
-addnode=149.202.54.104:9999
-addnode=199.247.11.231:9999
-addnode=206.189.14.143:9999
-addnode=54.37.233.203:9999
-addnode=104.238.141.12:9999
 EOF
 }
 
@@ -265,6 +249,6 @@ function setup_node() {
 clear
 
 checks
-prepare_system
+#prepare_system
 download_node
 setup_node
